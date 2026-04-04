@@ -3,27 +3,58 @@
 <head>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-    <title>Python Web</title>
+    <title>DevSearch | ro127arora</title>
+    <style>
+        body { background: #0d1117; color: white; font-family: sans-serif; text-align: center; padding: 50px; }
+        input { padding: 10px; width: 60%; border-radius: 5px; border: 1px solid #30363d; background: #161b22; color: white; }
+        button { padding: 10px 20px; border-radius: 5px; background: #238636; color: white; cursor: pointer; border: none; }
+        #results { margin-top: 30px; text-align: left; background: #161b22; padding: 20px; border-radius: 10px; border: 1px solid #30363d; min-height: 200px; }
+    </style>
 </head>
-<body style="background-color: #1a1a1a; color: #00ffcc; font-family: monospace; text-align: center; padding-top: 50px;">
+<body>
 
-    <h1>Python Terminal Live</h1>
-    <hr style="width: 50%;">
+    <h1>Global Knowledge Search</h1>
+    <p>Powered by Python (PyScript) & Wikipedia API</p>
+
+    <input type="text" id="search-query" placeholder="Type anything (e.g. Python, Space, AI)...">
+    <button id="search-btn" py-click="perform_search">Search</button>
+
+    <div id="results">
+        <p style="color: #8b949e;">Waiting for query...</p>
+    </div>
 
     <script type="py">
-from pyscript import display        
-print("WELCOME TO MY TERMINAL")
-print("-" * 20)
+from pyscript import display, window
+import json
+from pyodide.http import pyfetch
 
-def check_mindset(focus):
-    if focus == "Skills":
-        return "Topper Level Unlocked!"
-    else:
-        return "Drama detected..."
+async def perform_search(event):
+    search_box = window.document.getElementById("search-query")
+    query = search_box.value
+    
+    if not query:
+        display("Please enter a topic.", target="results", append=False)
+        return
 
-display(f"Current Status: {check_mindset('Skills')}")
-display("-" * 20)
-display("Website is ready.")
+    display(f"Searching for: {query}...", target="results", append=False)
+    
+    # Wikipedia API URL
+    url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{query.replace(' ', '_')}"
+    
+    try:
+        response = await pyfetch(url)
+        if response.status == 200:
+            data = await response.json()
+            description = data.get("extract", "No detailed info found.")
+            title = data.get("title", "Found")
+            
+            output = f"<h3>{title}</h3><p>{description}</p>"
+            window.document.getElementById("results").innerHTML = output
+        else:
+            display("Topic not found. Try something else.", target="results", append=False)
+    except Exception as e:
+        display("Network error. Make sure you are online.", target="results", append=False)
+
     </script>
 
 </body>
