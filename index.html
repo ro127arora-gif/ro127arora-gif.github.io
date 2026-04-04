@@ -11,6 +11,7 @@
     <hr style="width: 50%;">
 
     <script type="py">
+from pyscript import display        
 print("WELCOME TO MY TERMINAL")
 print("-" * 20)
 
@@ -20,9 +21,9 @@ def check_mindset(focus):
     else:
         return "Drama detected..."
 
-print(f"Current Status: {check_mindset('Skills')}")
-print("-" * 20)
-print("Website is ready.")
+display(f"Current Status: {check_mindset('Skills')}")
+display("-" * 20)
+display("Website is ready.")
     </script>
 
 </body>
