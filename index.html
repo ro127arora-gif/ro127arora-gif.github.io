@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <title>Python Web</title>
 </head>
-<body style="background-color: #1a1a1a; color: white; font-family: sans-serif; text-align: center; padding-top: 50px;">
-    
-    <h1>Python is Running on my Website!</h1>
+<body style="background-color: #1a1a1a; color: #00ffcc; font-family: monospace; text-align: center; padding-top: 50px;">
 
-    <py-script>
-# Ye pure Python code hai!
-print("WELCOME")
-print("Current Status: Learning System Design")
+    <h1>Python Terminal Live</h1>
+    <hr style="width: 50%;">
+
+    <script type="py">
+print("WELCOME TO MY TERMINAL")
+print("-" * 20)
 
 def check_mindset(focus):
     if focus == "Skills":
         return "Topper Level Unlocked!"
     else:
-        return "Drama detected... Rebooting."
+        return "Drama detected..."
 
-print(check_mindset("Skills"))
-    </py-script>
+print(f"Current Status: {check_mindset('Skills')}")
+print("-" * 20)
+print("Website is ready.")
+    </script>
 
 </body>
 </html>
