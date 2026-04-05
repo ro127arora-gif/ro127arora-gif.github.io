@@ -1,3 +1,7 @@
+<input type = "text" id = "search_query">
+<button py-click="search">Search</button>
+<div id="summary"></div>
+<py-script>
 from pyscript import display, window
 import json
 from pyodide.http import pyfetch
@@ -25,3 +29,4 @@ async def search(event):
 
         except Exception as e:
             window.document.getElementByld("summary").innerHTML = "Check your internet settings"
+</py-script>
