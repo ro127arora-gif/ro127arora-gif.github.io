@@ -14,7 +14,14 @@ async def search(event):
     url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{query}"
 
     try: 
-        if response status == 200:
-            response = await pyfetch(url)
-            output = response.json("extract","No detailed info found")
-            
+        response = await pyfetch(url)
+        if response.status == 200:
+            data = await response.json()
+            output = data.get("extract","No detailed info found")
+            window.document.getElementByld("summary").innerHTML = output
+        
+        else:
+             window.document.getElementByld("summary").innerHTML = "No results found"
+
+        except Exception as e:
+            window.document.getElementByld("summary").innerHTML = "Check your internet settings"
