@@ -1,0 +1,20 @@
+from pyscript import display, window
+import json
+from pyodide.http import pyfetch
+
+async def search(event):
+    search_query = window.document.getElementByld("search_query")
+    query = search_query.value
+
+    if not query:
+        display("Try search")
+        return
+
+    #Wikipedia API URL
+    url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{query}"
+
+    try: 
+        if response status == 200:
+            response = await pyfetch(url)
+            output = response.json("extract","No detailed info found")
+            
