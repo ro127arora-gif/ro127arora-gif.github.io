@@ -4,10 +4,11 @@
     <title>Practise Session</title>
     <style
         body {
-            background-color:black
+            background-color:black;
             color:white;
             text-align:center;
             }
+    </style>
 </head>
 <body>
     <h1>Self-Designed Search Assisstant</h1>
