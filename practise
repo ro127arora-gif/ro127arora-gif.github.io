@@ -8,6 +8,13 @@
             color:white;
             text-align:center;
             }
+        button {
+            back-ground:green;
+            color:white;
+            border-radius:10px;
+            padding:5px 15px;
+            cursor:pointer;
+            }
     </style>
 </head>
 <body>
