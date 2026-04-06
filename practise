@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <title>Practise Session</title>
+    <style
+        body {
+            background-color:black
+            color:white;
+            text-align:center;
+            }
 </head>
 <body>
     <h1>Self-Designed Search Assisstant</h1>
