@@ -9,7 +9,7 @@
             text-align:center;
             }
         button {
-            back-ground:green;
+            background-color:green;
             color:white;
             border-radius:10px;
             padding:5px 15px;
