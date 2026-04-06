@@ -19,6 +19,10 @@
             border: none;
             cursor: pointer;
         }
+        button:hover {
+            background-color: #2ecc71;
+            transform scale(1,1);
+        }
     </style>
 </head>
 <body>
