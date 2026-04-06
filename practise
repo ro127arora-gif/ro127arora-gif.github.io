@@ -23,15 +23,24 @@
             background-color: #2ecc71;
             transform: scale(1,1);
         }
+        .main-box {
+            background-color: #1a1a1a;
+            padding:30px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            display:inline-block;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0,5);
+        }    
     </style>
 </head>
 <body>
-
+  <div class="main-box">
     <h1>Self-Designed Search Assistant</h1>
     <p>Practice Session: HTML Basics</p>
     
     <input type="text" placeholder="Type here">
     <button>Search</button>
-
+  </div>
 </body>
 </html>
