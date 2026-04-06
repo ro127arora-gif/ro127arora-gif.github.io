@@ -15,6 +15,10 @@
             padding:5px 15px;
             cursor:pointer;
             }
+        button:hover {
+            background-color: #2ecc71;
+            transform: scale(1,1)
+            transition: 0.3s:
     </style>
 </head>
 <body>
