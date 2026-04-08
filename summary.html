@@ -40,6 +40,17 @@
     }
   </style>
 </head>  
+  <script>
+    // Python API se data khincho
+    fetch('http://127.0.0.1:5000/api/dashboard')
+        .then(response => response.json()) // Data ko JSON mein badlo
+        .then(data => {
+            // HTML ki IDs ko backend ke data se badlo
+            document.getElementById('data1').innerText = data.progress;
+            document.getElementById('data2').innerText = data.status;
+            document.getElementById('data3').innerText = data.goal;
+        });
+</script>
 <body>
   <div class = "main-box">
     <div class = "box1">
