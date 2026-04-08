@@ -43,14 +43,30 @@
 <body>
   <div class = "main-box">
     <div class = "box1">
-      <h3>Backend Progress</h3>
-    </div
+      <h3>Progress:<span id="data">...</h3>
+    </div>
     <div class = "box2">
-      <h3>Assignment Status:completed</h3>
+      <h3>Status:<span id="data2">...</h3>
     </div
     <div class = "box3">
-      <h3>Future Goal: Senior Developer</h3>
+      <h3>Goal:<span id="data3">...</h3>
     </div>
   </div>
 </body>  
+  <pyscript>
+    from flask import Flask, jsonify
+    from flask_cors import CORS
+
+    app=Flask(__name__)
+    CORS(app)
+    @app.route('/api/dashboard)
+    def get_dashboard_data():
+        return jsonify({
+            "progress":90%
+            "status":"In progress"
+            "goal":"software engineer"
+        })
+    if __name__ == '__main__':
+        app.run(debug=True, port=5000)
+  </pyscript>
 </html>  
